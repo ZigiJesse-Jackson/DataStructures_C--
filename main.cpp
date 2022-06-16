@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./List-Type_Data_Structures/BinaryTree.cpp"
+#include "./Utilities/TreeDataStructures/BinaryTreeDataStructures/BinaryTree_withKey.cpp"
 
 int main()
 {   
@@ -21,20 +21,21 @@ int main()
     BinaryNode<int>* n_15 = new BinaryNode<int>(15,15);
     BinaryNode<int>* n_17 = new BinaryNode<int>(94,29);
 
-    tree.insert(n_4);
     tree.insert(n_12);
     tree.insert(n_2);
     tree.insert(n_6);
+    tree.insert(n_4);
     tree.insert(n_10);
     tree.insert(n_14);
     tree.insert(n_1);
     tree.insert(n_3);
     tree.insert(n_5);
-    tree.insert(n_7);
-    tree.insert(n_9);
+    
     tree.insert(n_11);
     tree.insert(n_13);
     tree.insert(n_15);
+    tree.insert(n_7);
+    tree.insert(n_9);
     tree.insert(n_17);  
 
     tree.printTree();
