@@ -7,8 +7,7 @@
 template<typename T, size_t n>
 void arr_ind_2_binary(std::array<T, n>& arr, std::vector<int>& queue, int l, int r){
     // base case
-    if(l==r || l>r){
-        queue.push_back(l);
+    if(l>r){
         return;
     }
 
