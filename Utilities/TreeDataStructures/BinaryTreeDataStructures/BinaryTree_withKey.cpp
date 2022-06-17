@@ -17,6 +17,31 @@ class BinaryTree{
             delete node;
         }
 
+    // Prints tree preorder fashion     
+    void printTree_1(BinaryNode<T>* node){
+        // node with no children
+        if(node->left==nullptr && node->right==nullptr){
+            std::cout << node->data;
+            return;
+        }
+
+        // initializing current node as root
+        BinaryNode<T>* curr = node;
+        std::vector<BinaryNode<T>*> stack;
+
+        stack.push_back(node);
+        
+        // traversing preorder iterative
+        while (stack.empty()==false){
+            
+            curr = stack.back();
+            std::cout << curr->data << " ";
+            stack.pop_back();
+            if(curr->left!=nullptr)stack.push_back(curr->left);
+            if(curr->right!=nullptr)stack.push_back(curr->right);
+        }
+    }
+
     // Prints tree inorder fashion     
     void printTree(BinaryNode<T>* node){
         // node with no children
@@ -68,15 +93,17 @@ class BinaryTree{
         // copy assignment
         BinaryTree& operator=(BinaryTree& other){
             root = other.root;
+            return root;
         }
 
         // move assignment
         BinaryTree& operator=(BinaryTree&& other){
             std::swap(root, other.root);
             other.root = nullptr;
-            
+            return root;
         }
 
+        // insert method of Binary tree
         void insert(BinaryNode<T>* inserted_node){
 
             // Tree is empty
@@ -126,8 +153,12 @@ class BinaryTree{
         }
 
         // print content of tree inorder
-        void printTree(){
-            printTree(root);
+        void printTree(int choice=0){
+            if(choice){
+                printTree_1(root);
+            }else{
+                printTree(root);
+                }
         }
 
         // BinaryTree destructor
